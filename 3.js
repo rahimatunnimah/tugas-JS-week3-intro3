@@ -1,43 +1,45 @@
-//program 1 mengecek talent
-const cekTalent = (talent) => {
+//program 1 menampilkan data talent
+const talent = true;
+const getTalent = () => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       try {
-        const dataTalent = [
-          "ni'mah",
-          "rizky",
-          "reza",
-          "wachid",
-          "nanang",
-          "aldo",
-          "ayi",
-          "kevin",
-          "adi",
-          "ilham",
-          "verdy",
-          "apri",
-          "taufik",
-          "irfandi",
-          "azis",
-          "jafar",
-        ];
-        let cek = dataTalent.find((item) => {
-          return item === talent;
-        });
-        if (cek) {
-          resolve(cek);
+        if (talent) {
+          const dataTalent = [
+            "ni'mah",
+            "rizky",
+            "reza",
+            "wachid",
+            "nanang",
+            "aldo",
+            "ayi",
+            "kevin",
+            "adi",
+            "ilham",
+            "verdy",
+            "apri",
+            "taufik",
+            "irfandi",
+            "azis",
+            "jafar",
+          ];
+          resolve(dataTalent);
         } else {
-          throw new Error("talent not found");
+          throw new Error("empty data");
         }
-      } catch (e) {
-        reject(e);
+      } catch (err) {
+        reject(err);
       }
-    }, 2000);
+    });
   });
 };
 
-cekTalent("ni'mah")
-  .then((res) => console.log(res))
+getTalent()
+  .then((res) => {
+    res.forEach((data) => {
+      console.log(data);
+    });
+  })
   .catch((err) => console.log(err));
 
 //program 2 menambahkan makanan favorit
@@ -58,7 +60,7 @@ const postFood = (food) => {
         if (!err) {
           resolve();
         } else {
-          throw new Error("sorry something wrong!");
+          throw new Error("sorry something went wrong!");
         }
       } catch (e) {
         reject(e);
