@@ -16,7 +16,7 @@ const fullName = () => {
 };
 fullName()
   .then((res) => {
-    res.data.forEach((user) => {
+    res?.data?.forEach((user) => {
       console.log(user.name);
     });
   })
